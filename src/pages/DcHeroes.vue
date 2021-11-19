@@ -17,8 +17,7 @@
           class="border rounded px-2"
           v-model="newHero"
           placeholder="Type Hero Name Here"
-          ref="newHeroRef"
-      />
+          ref="newHeroRef"/>
       <button
           class="border rounded bg-gradient-to-r from-red-700 to-pink-500 text-white ml-2 px-2"
           type="submit">
@@ -30,7 +29,6 @@
 
 <script>
 import {computed, onMounted, ref} from "vue";
-
 export default {
   setup() {
     const newHeroRef = ref("");
@@ -48,11 +46,9 @@ export default {
     const herosCount = computed({
       get: () => dcHeros.value.length,
     });
-
     function remove(index) {
       dcHeros.value = dcHeros.value.filter((hero, i) => i !== index);
     }
-
     function addHero() {
       if (newHero.value !== "") {
         dcHeros.value.unshift({name: newHero.value});
